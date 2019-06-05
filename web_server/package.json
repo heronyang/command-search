@@ -1,0 +1,30 @@
+{
+  "name": "command-search-web-server",
+  "version": "1.0.0",
+  "description": "Web server for Command Search",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heronyang/command-search.git"
+  },
+  "keywords": [
+    "command",
+    "search",
+    "web",
+    "server"
+  ],
+  "author": "heronyang",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/heronyang/command-search/issues"
+  },
+  "homepage": "https://github.com/heronyang/command-search#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "formidable": "^1.2.1",
+    "http": "0.0.0"
+  }
+}
