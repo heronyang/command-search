@@ -20,13 +20,12 @@ app.post('/histfile_upload', function (req, res){
         return;
     }
     form.parse(req, function(err, fields, files) {
+        console.log(fields);
+        console.log(files.data.path);
         res.send('OK\n');
     });
-    form.on('fileBegin', function (name, file){
-        console.log('Uploading', file.name);
-    });
     form.on('file', function (name, file){
-        console.log('Uploaded', file.name, file.path);
+        console.log('File committed', file.name, file.path);
     });
 });
 
