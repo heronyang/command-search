@@ -13,6 +13,13 @@ const port = process.env.PORT;
 
 var app = express();
 
+// Sets files under static/ as static files.
+app.use(express.static('static'));
+
+app.get('/', function (req, res){
+    res.sendFile('index.html', {root: __dirname});
+});
+
 app.get('/status', function (req, res){
     console.log('OK')
     res.send('OK\n');
