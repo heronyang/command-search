@@ -1,10 +1,10 @@
 {
-  "name": "command-search-web-server",
+  "name": "command-search-publisher",
   "version": "1.0.0",
-  "description": "Web server for Command Search",
+  "description": "Publisher for Command Search",
   "main": "main.js",
   "scripts": {
-    "run": "node main"
+    "run": "node main.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,8 @@
   "keywords": [
     "command",
     "search",
-    "web",
-    "server"
+    "publisher",
+    "cronjob"
   ],
   "author": "heronyang",
   "license": "GPL-3.0-only",
@@ -24,7 +24,6 @@
   "homepage": "https://github.com/heronyang/command-search#readme",
   "dependencies": {
     "dotenv": "^8.0.0",
-    "formidable": "^1.2.1",
     "sqlite3": "^4.0.8"
   }
 }

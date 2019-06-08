@@ -38,6 +38,8 @@ app.post('/histfile_upload', function (req, res){
 /*
  * Database
  */
+// TODO: Move database code to a different file from the server code here.
+// TODO: Move these SQL commands to an external file with .sql extension.
 const sql_drop_if_exists_table = `DROP TABLE IF EXISTS histfiles`;
 const sql_create_table = `CREATE TABLE histfiles (
     os TEXT,
@@ -58,6 +60,9 @@ const db = new sqlite3.Database(db_path, sqlite3.OPEN_READWRITE,
             console.error(err.message);
         }
         console.log('Connected to database.');
+
+        // TODO: We run everything again for prototype purpose. We should make
+        // it merge with previous tables.
         console.log('Setting up a clean table.');
         db.run(sql_drop_if_exists_table, function(err) {
             if (err) {
@@ -74,17 +79,16 @@ const db = new sqlite3.Database(db_path, sqlite3.OPEN_READWRITE,
     }
 );
 
+// TODO: Store files in cloud storage instead of local storage, so `filepath`
+// should become some cloud storage url.
 function insertHistfileMeta(fields, filepath) {
     const sql = util.format(sql_insert_row, fields.os, fields.username,
         fields.system_id, fields.shell, filepath);
     console.log(sql);
-    db.serialize(() => {
-        db.run(sql, function(err) {
-            if (err) {
-                return console.log(err.message);
-            }
-            console.log('New histfile entry is logged.');
+    db.run(sql, function(err) {
+        if (err) {
+            return console.log(err.message);
         }
-        );
+        console.log('New histfile entry is logged.');
     });
 }
