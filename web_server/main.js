@@ -38,18 +38,18 @@ app.post('/histfile_upload', function (req, res){
 /*
  * Database
  */
-
 const sql_drop_if_exists_table = `DROP TABLE IF EXISTS histfiles`;
 const sql_create_table = `CREATE TABLE histfiles (
     os TEXT,
     username TEXT,
     system_id TEXT,
+    shell TEXT,
     upload_time TIMESTAMP,
     filepath TEXT
 )`;
 const sql_insert_row = `INSERT INTO histfiles
-    (os, username, system_id, upload_time, filepath)
-    VALUES ("%s", "%s", "%s", CURRENT_TIMESTAMP, "%s")`;
+    (os, username, system_id, shell, upload_time, filepath)
+    VALUES ("%s", "%s", "%s", "%s", CURRENT_TIMESTAMP, "%s")`;
 
 const db_path = process.env.DATABASE;
 const db = new sqlite3.Database(db_path, sqlite3.OPEN_READWRITE,
@@ -76,7 +76,7 @@ const db = new sqlite3.Database(db_path, sqlite3.OPEN_READWRITE,
 
 function insertHistfileMeta(fields, filepath) {
     const sql = util.format(sql_insert_row, fields.os, fields.username,
-        fields.system_id, filepath);
+        fields.system_id, fields.shell, filepath);
     console.log(sql);
     db.serialize(() => {
         db.run(sql, function(err) {

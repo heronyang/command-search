@@ -16,5 +16,6 @@ curl -X POST \
     -F os=$OS \
     -F username=$USER \
     -F system_id=$SYSTEM_ID \
+    -F shell=$SHELL \
     http://localhost:3000/histfile_upload
 echo "Done"
