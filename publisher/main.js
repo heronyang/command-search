@@ -44,7 +44,7 @@ const sql_create_table = `CREATE TABLE commands (
     PRIMARY KEY (ID)
 )`;
 
-// Resets the table
+// Resets the table.
 // TODO: We run everything again for prototype purpose. We should make it merge
 // with previous tables.
 function setup_database_tables(callback) {

@@ -18,6 +18,22 @@ app.get('/', function (req, res){
     res.send('OK\n');
 });
 
+app.get('/suggestion', function (req, res){
+    // TODO: This is quick hack that we always return the whole table no matter
+    // what query the user gives.
+    console.log('Getting suggestion');
+    db.all('SELECT * FROM commands', (err, rows) => {
+        if (err) {
+            console.log(err.message);
+            res.send('Failed\n');
+            return;
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(rows));
+        console.log('Respond suggestion');
+    });
+});
+
 app.post('/histfile_upload', function (req, res){
     var form = new formidable.IncomingForm();
     if(form.multiples) {
