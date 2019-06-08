@@ -1,10 +1,10 @@
-# Install
+## Install
 
 ```bash
 $ npm install
 ```
 
-# Run
+## Run
 
 ```bash
 $ npm run-script run
