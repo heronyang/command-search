@@ -1,14 +1,10 @@
 # Command-Search
 
+![](http://g.recordit.co/xJ9CiBjy1G.gif)
+
+Command Search allows you search commands uploaded by our contributors.
+
 You can...
 
-1. Search command at command-search.herokuapp.com, or
-2. Contribute your command history
-
-# Install
-
-Note that sqlite3 should be installed with python2 like:
-
-```bash
-$ npm install --save --python=python2.7 sqlite3
-```
+- Read our [design doc](https://github.com/heronyang/command-search/wiki/Design-Doc)
+- Contribute to our code (just fork it and send out pull requests)
