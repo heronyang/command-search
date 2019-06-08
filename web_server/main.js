@@ -13,8 +13,8 @@ const port = process.env.PORT;
 
 var app = express();
 
-app.get('/', function (req, res){
-    console.log('hello')
+app.get('/status', function (req, res){
+    console.log('OK')
     res.send('OK\n');
 });
 
