@@ -1,6 +1,4 @@
 #!/bin/bash
-# Run:
-# $ export HISTFILE && bash upload.sh
 
 # We only support MacOS now.
 if [[ !"$OSTYPE" == "darwin"* ]]; then
